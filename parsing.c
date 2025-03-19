@@ -6,7 +6,7 @@
 /*   By: wskrzyni <wskrzyni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 16:04:30 by wskrzyni          #+#    #+#             */
-/*   Updated: 2025/01/28 15:22:38 by wskrzyni         ###   ########.fr       */
+/*   Updated: 2025/03/19 14:01:06 by wskrzyni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,14 @@ static int	check_doubles(char **args)
 int	check_list(char **args)
 {
 	int	i;
-	int	j;
 
 	i = 0;
 	while (args[i] != NULL)
 	{
-		j = 0;
 		if (ft_atol(args[i]) > 2147483647 || ft_atol(args[i]) < -2147483648)
 			return (0);
-		while (args[i][j] != '\0')
-		{
-			if (!is_atoi(args[i]))
-				return (0);
-			j++;
-		}
+		if (!is_atoi(args[i]))
+			return (0);
 		i++;
 	}
 	if (!check_doubles(args))
